@@ -1,11 +1,11 @@
-﻿using SICAU.QSS.Model;
+﻿using SICAU.QSS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SICAU.QSS.BLL.Common
+namespace SICAU.QSS.BLL
 {
     /// <summary>
     /// User类扩展方法
@@ -18,6 +18,6 @@ namespace SICAU.QSS.BLL.Common
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public static bool QssCheckHaveEmail(this User user) => string.IsNullOrWhiteSpace(user.Email) || user.ACode != "" ? false : true;
+        internal static bool QssCheckHaveEmail(this User user) => string.IsNullOrWhiteSpace(user.Email) || user.ACode != "" ? false : true;
     }
 }

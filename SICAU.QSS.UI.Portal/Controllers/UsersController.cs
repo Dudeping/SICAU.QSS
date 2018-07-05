@@ -6,14 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SICAU.QSS.Model;
-using SICAU.QSS.IBLL;
-using SICAU.QSS.BLLFactory;
-using SICAU.QSS.UI.Portal.Models;
 using SICAU.QSS.UI.Portal.Infrastructure;
 using PagedList;
-using SICAU.QSS.BLLModel;
 using SICAU.QSS.Common;
+using SICAU.QSS.BLL;
+using SICAU.QSS.Models;
 
 namespace SICAU.QSS.UI.Portal.Controllers
 {

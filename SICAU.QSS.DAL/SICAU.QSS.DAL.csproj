@@ -57,47 +57,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDal.cs" />
-    <Compile Include="LetterDal.cs" />
-    <Compile Include="LogDal.cs" />
-    <Compile Include="OrganizeDal.cs" />
-    <Compile Include="QuesOptionDal.cs" />
-    <Compile Include="QuesSubjectDal.cs" />
-    <Compile Include="QuestionDal.cs" />
-    <Compile Include="RoleDal.cs" />
-    <Compile Include="SysNewsDal.cs" />
-    <Compile Include="UserDal.cs" />
+    <Compile Include="IBaseDal.cs" />
+    <Compile Include="ILetterDal.cs" />
+    <Compile Include="ILogDal.cs" />
+    <Compile Include="Impl\BaseDal.cs" />
+    <Compile Include="Impl\LetterDal.cs" />
+    <Compile Include="Impl\LogDal.cs" />
+    <Compile Include="Impl\OrganizeDal.cs" />
+    <Compile Include="Impl\QuesOptionDal.cs" />
+    <Compile Include="Impl\QuesSubjectDal.cs" />
+    <Compile Include="Impl\QuestionDal.cs" />
+    <Compile Include="Impl\RoleDal.cs" />
+    <Compile Include="Impl\SysNewsDal.cs" />
+    <Compile Include="Impl\UserDal.cs" />
+    <Compile Include="IOrganizeDal.cs" />
+    <Compile Include="IQssDbSession.cs" />
+    <Compile Include="IQuesOptionDal.cs" />
+    <Compile Include="IQuesSubjectDal.cs" />
+    <Compile Include="IQuestionDal.cs" />
+    <Compile Include="IQuesVoteBaseDal.cs" />
+    <Compile Include="IRoleDal.cs" />
+    <Compile Include="ISysNewsDal.cs" />
+    <Compile Include="IUserDal.cs" />
+    <Compile Include="IVoteDal.cs" />
+    <Compile Include="IVoteOptionDal.cs" />
+    <Compile Include="IWebConfigDal.cs" />
+    <Compile Include="IWtLogDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VoteDal.cs" />
-    <Compile Include="VoteOptionDal.cs" />
-    <Compile Include="WebConfigDal.cs" />
-    <Compile Include="WtLogDal.cs" />
+    <Compile Include="Impl\VoteDal.cs" />
+    <Compile Include="Impl\VoteOptionDal.cs" />
+    <Compile Include="Impl\WebConfigDal.cs" />
+    <Compile Include="Impl\WtLogDal.cs" />
+    <Compile Include="QssDbSession.cs" />
+    <Compile Include="StaticDalFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SICAU.QSS.BLLModel\SICAU.QSS.BLLModel.csproj">
-      <Project>{50021C29-E392-4869-9976-DC44C4B21E44}</Project>
-      <Name>SICAU.QSS.BLLModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SICAU.QSS.Common\SICAU.QSS.Common.csproj">
       <Project>{91B6CD71-09FA-4DE1-9FAC-03240C30BFF4}</Project>
       <Name>SICAU.QSS.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.IDAL\SICAU.QSS.IDAL.csproj">
-      <Project>{09A4CCB5-897A-46CB-952A-EF1ED14BACC2}</Project>
-      <Name>SICAU.QSS.IDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.ModelFactory\SICAU.QSS.ModelFactory.csproj">
-      <Project>{731ce112-1a09-4120-a080-eaf5eff2a37d}</Project>
-      <Name>SICAU.QSS.ModelFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.Model\SICAU.QSS.Model.csproj">
-      <Project>{05837dcc-c015-4e83-a49a-63b1791328e5}</Project>
-      <Name>SICAU.QSS.Model</Name>
+    <ProjectReference Include="..\SICAU.QSS.Models\SICAU.QSS.Models.csproj">
+      <Project>{05837DCC-C015-4E83-A49A-63B1791328E5}</Project>
+      <Name>SICAU.QSS.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="Impl\packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

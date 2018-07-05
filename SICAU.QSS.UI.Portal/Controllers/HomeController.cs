@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using PagedList;
-using SICAU.QSS.BLLFactory;
+using SICAU.QSS.BLL;
 using SICAU.QSS.Common;
-using SICAU.QSS.IBLL;
+
 using SICAU.QSS.UI.Portal.Infrastructure;
 using System;
 using System.Collections.Generic;

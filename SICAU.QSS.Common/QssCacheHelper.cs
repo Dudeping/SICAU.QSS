@@ -23,14 +23,14 @@ namespace SICAU.QSS.Common
         public static T GetCallContextCache<T>(string key) where T : class, new()
         {
             // 获取缓存数据
-            var t = CallContext.GetData(key) as T;
-            if (t == null)
+            if (!(CallContext.GetData(key) is T t))
             {
                 // 没有时新建
                 t = new T();
                 // 并缓存
                 CallContext.SetData(key, t);
             }
+
             return t;
         }
     }

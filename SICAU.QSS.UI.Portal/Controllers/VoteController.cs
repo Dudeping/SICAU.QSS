@@ -1,9 +1,8 @@
 ﻿using PagedList;
-using SICAU.QSS.BLLFactory;
-using SICAU.QSS.BLLModel;
+using SICAU.QSS.BLL;
 using SICAU.QSS.Common;
-using SICAU.QSS.IBLL;
-using SICAU.QSS.Model;
+
+using SICAU.QSS.Models;
 using SICAU.QSS.UI.Portal.Infrastructure;
 using System;
 using System.Collections.Generic;

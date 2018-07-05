@@ -1,12 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SICAU.QSS.BLLFactory;
-using SICAU.QSS.BLLModel;
+using SICAU.QSS.BLL;
 using SICAU.QSS.Common;
-using SICAU.QSS.IBLL;
-using SICAU.QSS.Model;
+using SICAU.QSS.Models;
 using SICAU.QSS.UI.Portal.Infrastructure;
-using SICAU.QSS.UI.Portal.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;

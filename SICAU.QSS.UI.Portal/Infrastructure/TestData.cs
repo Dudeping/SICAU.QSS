@@ -1,5 +1,5 @@
 ﻿using SICAU.QSS.Common;
-using SICAU.QSS.Model;
+using SICAU.QSS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

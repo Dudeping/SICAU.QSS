@@ -55,50 +55,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseService.cs" />
+    <Compile Include="IBaseService.cs" />
+    <Compile Include="ILetterService.cs" />
+    <Compile Include="ILogService.cs" />
+    <Compile Include="Impl\BaseService.cs" />
     <Compile Include="Common\QssSendOrgLetterEmail.cs" />
     <Compile Include="Common\QssSendQvLetterEmail.cs" />
     <Compile Include="Common\QssUserHelper.cs" />
-    <Compile Include="LetterService.cs" />
-    <Compile Include="LogService.cs" />
-    <Compile Include="OrganizeService.cs" />
+    <Compile Include="Impl\LetterService.cs" />
+    <Compile Include="Impl\LogService.cs" />
+    <Compile Include="Impl\OrganizeService.cs" />
+    <Compile Include="IOrganizeService.cs" />
+    <Compile Include="IQuesOptionService.cs" />
+    <Compile Include="IQuesSubjectService.cs" />
+    <Compile Include="IQuestionService.cs" />
+    <Compile Include="IQuesVoteBaseService.cs" />
+    <Compile Include="IRoleService.cs" />
+    <Compile Include="ISysNewsService.cs" />
+    <Compile Include="IUserService.cs" />
+    <Compile Include="IVoteOptionService.cs" />
+    <Compile Include="IVoteService.cs" />
+    <Compile Include="IWebConfigService.cs" />
+    <Compile Include="IWtLogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuesOptionService.cs" />
-    <Compile Include="QuesSubjectService.cs" />
-    <Compile Include="QuestionService.cs" />
-    <Compile Include="QuesVoteBaseService.cs" />
-    <Compile Include="RoleService.cs" />
-    <Compile Include="SysNewsService.cs" />
-    <Compile Include="UserService.cs" />
-    <Compile Include="VoteOptionService.cs" />
-    <Compile Include="VoteService.cs" />
-    <Compile Include="WebConfigService.cs" />
-    <Compile Include="WtLogService.cs" />
+    <Compile Include="Impl\QuesOptionService.cs" />
+    <Compile Include="Impl\QuesSubjectService.cs" />
+    <Compile Include="Impl\QuestionService.cs" />
+    <Compile Include="Impl\QuesVoteBaseService.cs" />
+    <Compile Include="Impl\RoleService.cs" />
+    <Compile Include="Impl\SysNewsService.cs" />
+    <Compile Include="Impl\UserService.cs" />
+    <Compile Include="Impl\VoteOptionService.cs" />
+    <Compile Include="Impl\VoteService.cs" />
+    <Compile Include="Impl\WebConfigService.cs" />
+    <Compile Include="Impl\WtLogService.cs" />
+    <Compile Include="StaticBllFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SICAU.QSS.BLLModel\SICAU.QSS.BLLModel.csproj">
-      <Project>{50021C29-E392-4869-9976-DC44C4B21E44}</Project>
-      <Name>SICAU.QSS.BLLModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SICAU.QSS.Common\SICAU.QSS.Common.csproj">
       <Project>{91B6CD71-09FA-4DE1-9FAC-03240C30BFF4}</Project>
       <Name>SICAU.QSS.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.DALFactory\SICAU.QSS.DALFactory.csproj">
-      <Project>{B4388FEE-F202-4BD6-9935-6E233EE850AE}</Project>
-      <Name>SICAU.QSS.DALFactory</Name>
+    <ProjectReference Include="..\SICAU.QSS.DAL\SICAU.QSS.DAL.csproj">
+      <Project>{17D84C9C-1C5E-4C1B-B8F6-CC696382A5B8}</Project>
+      <Name>SICAU.QSS.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.IBLL\SICAU.QSS.IBLL.csproj">
-      <Project>{361780FC-CCFA-4606-81ED-2C511A000E63}</Project>
-      <Name>SICAU.QSS.IBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.IDAL\SICAU.QSS.IDAL.csproj">
-      <Project>{09A4CCB5-897A-46CB-952A-EF1ED14BACC2}</Project>
-      <Name>SICAU.QSS.IDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SICAU.QSS.Model\SICAU.QSS.Model.csproj">
+    <ProjectReference Include="..\SICAU.QSS.Models\SICAU.QSS.Models.csproj">
       <Project>{05837DCC-C015-4E83-A49A-63B1791328E5}</Project>
-      <Name>SICAU.QSS.Model</Name>
+      <Name>SICAU.QSS.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

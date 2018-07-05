@@ -1,7 +1,6 @@
 ﻿using SICAU.QSS.Common;
-using SICAU.QSS.DALFactory;
-using SICAU.QSS.IDAL;
-using SICAU.QSS.Model;
+using SICAU.QSS.DAL;
+using SICAU.QSS.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace SICAU.QSS.BLL.Common
+namespace SICAU.QSS.BLL
 {
     /// <summary>
     /// 发送问卷/投票状态更改通知(邮件和站内信)
     /// </summary>
-    public class QssSendQvLetterEmail<T> where T : QuesVoteBase
+    internal class QssSendQvLetterEmail<T> where T : QuesVoteBase
     {
         /// <summary>
         /// 当前上下文对象

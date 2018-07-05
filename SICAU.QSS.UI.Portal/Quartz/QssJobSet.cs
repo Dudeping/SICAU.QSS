@@ -1,5 +1,5 @@
 ﻿using Quartz;
-using SICAU.QSS.BLLFactory;
+using SICAU.QSS.BLL;
 using SICAU.QSS.Common;
 using System;
 using System.Collections.Generic;

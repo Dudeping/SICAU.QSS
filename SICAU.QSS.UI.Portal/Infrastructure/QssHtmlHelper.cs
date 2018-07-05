@@ -1,6 +1,7 @@
-﻿using SICAU.QSS.BLLFactory;
+﻿
+using SICAU.QSS.BLL;
 using SICAU.QSS.Common;
-using SICAU.QSS.Model;
+using SICAU.QSS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace SICAU.QSS.UI.Portal.Infrastructure
         public static MvcHtmlString GetSysNewNum(this HtmlHelper html)
         {
             int sysNewNum = 0;
-            if (StaticBllFactory.GetLetterService().QssGetLetterList(BLLModel.QssGetLetterType.UnRead, out string message, out IQueryable<Letter> letters) == QssResult.Success) sysNewNum = letters.Count();
+            if (StaticBllFactory.GetLetterService().QssGetLetterList(QssGetLetterType.UnRead, out string message, out IQueryable<Letter> letters) == QssResult.Success) sysNewNum = letters.Count();
             return new MvcHtmlString(sysNewNum > 0 ? $"{sysNewNum}" : "");
 
         }
