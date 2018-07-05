@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCreShow.cshtml";
+}
+
+@section LoadCss{
+    <link type="text/css" href="/css/create.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/create.js?5c0a13bdc04791999455"></script>
+}
+
+<!-- TODO: data-type 值，{string，['ques','vote']}:ques代表创建问卷，vote代表创建投票-->
+<div class="container-fluid c-page-fluid" id="QVCreatPage" data-type="@ViewBag.CreateType">
+    <div class="page-sidebar" style="display: none">
+        <div class="side-button" expanded="true"><span class="glyphicon glyphicon-cog"></span></div>
+        <ul class="nav c-nav-pills nav-stacked" id="itemTypes">
+            <li class="nav-item">
+                <a class="nav-link" item-type="radio">单选<span class="glyphicon glyphicon-plus"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" item-type="checkbox">多选<span class="glyphicon glyphicon-plus"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" item-type="subjective">主观题<span class="glyphicon glyphicon-plus"></span></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row c-page-container" id="QVPage" data-id="335600" data-type="02">
+        <div class="page-header">
+            <h2 data-toggle="collapse" href="#QVTitleContainer" aria-expanded="false" aria-controls="collapseExample" style="cursor: pointer">点击填写问卷标题 </h2>
+            <div class="collapse" id="QVTitleContainer">
+                <textarea class="form-control card card-block" rows="1" id="QVTitleContent"></textarea>
+            </div>
+            <small class="info" data-toggle="collapse" href="#QVTitleInstroductionContainer" aria-expanded="false" aria-controls="collapseExample" style="cursor: pointer">点击填写问卷简介 </small>
+            <div class="collapse" id="QVTitleInstroductionContainer">
+                <textarea class="form-control card card-block" id="QVTitleInstroductionContent"></textarea>
+            </div>
+        </div>
+        <div class="page-body" id="QVPageBody">
+        </div>
+        <div class="page-footer">
+            <form class="bottom-button">
+                <fieldset class="form-group">
+                    <a class="btn btn-success" id="nextStep">下一步</a>
+                    <a class="btn btn-primary" href="/">返回</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="QVSetPage" style="display: none">
+    <div class="container" style="margin-top: 50px">
+        <div class="page">
+            <div class="page-header">
+                <h2>权限设置</h2>
+            </div>
+            <div class="page-body">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="identitySelections">选择发布身份</label>
+                        <select class="form-control col-md-width" id="identitySelections"></select>
+                        <small class="text-muted" id="identitySelectionsInfo">权限选择时，选择了级别比较高的组织后，默认包含了下级的组织</small>
+                    </fieldset>
+                    <fieldset class="form-group" id="accessibleOrgSettings">
+                        <label>组织权限设置：（按照范围选择）</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="Self" checked="checked">&nbsp;我加入的</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="School">&nbsp;学校</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="Campus">&nbsp;校区</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="College">&nbsp;学院</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="Major">&nbsp;专业</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="Department">&nbsp;部门</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="Association">&nbsp;协会</label>
+                        <label class="radio-inline"><input type="radio" name="organizationClassificationSelects" value="Class">&nbsp;班级</label>
+                        <!-- <div class="radio-inline" id="accessibleOrgSearch">
+
+                        </div> -->
+                        <div class="list-hidden-y">
+                            <table class="table table-hover" id="accessibleOrgTable">
+                                <thead>
+                                    <tr>
+                                        <th>组织名</th>
+                                        <th>填写权限</th>
+                                        <th>查看权限</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>开始时间</label>
+                        <input type="datetime-local" class="form-control col-md-width" id="releaseTime">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>结束时间</label>
+                        <input type="datetime-local" class="form-control col-md-width" id="endTime">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="page-footer">
+                <form>
+                    <fieldset class="form-group bottom-button">
+                        <a class="btn btn-success" id="createSubmit">提交</a>
+                        <a class="btn btn-primary" id="previousStep">上一步</a>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<JoinOrgModel>
+@{
+    ViewBag.Title = "组织管理";
+}
+
+@Html.Partial("_PartialModal")
+@Html.Partial("_PartialTitle")
+@section LoadCss{
+    <link type="text/css" href="/css/user.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/user.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="orgManagePanel">
+        <div class="filter-wrapper">
+            <div class="container">
+                <ul class="pager filter">
+                    <li>
+                        <a class="@(ViewBag.IsCreate != "true"?"fa-fade":"" )" href="/Users/OrganizeList?isCreate=false">我加入</a>
+                    </li>
+                    @if (!User.IsInRole(QssRoleType.User.ToString()))
+                    {
+                        <li>
+                            <a class="@(ViewBag.IsCreate == "true"?"fa-fade":"" )" href="/Users/OrganizeList?isCreate=true">我创建</a>
+                        </li>
+                    }
+                    <li>
+                        <a href="/Organize/Create">新建组织</a>
+                    </li>
+                    <li>
+                        <form class="navbar-form navbar-right" role="search" action="/Organize/SearchOrganize" method="post">
+                            <div class="form-group">
+                                <input name="organize" type="text" class="form-control" placeholder="输入要加入的组织" id="dropdownMenuSearch" autocomplete="off">
+                            </div>
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-container">
+            <div class="container">
+                <table class="table table-hover" id="orgManage">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th>组织名</th>
+                            <th>组织类型</th>
+                            <th>过期时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr data-id="@item.Id">
+                                <td>
+                                    <span class="title" id="data-id">@item.Name</span>
+                                    <a class="icon" data-target="#data-id" data-type="text"></a>
+                                </td>
+                                <td data-type="@item.Type.ToString()">
+                                    @Html.GetOrgType(item.Type)
+                                </td>
+                                <td class="time">
+                                    @(item.DeleteTime == DateTime.Parse("1996/09/06") ? "永久有效" : item.DeleteTime.ToLongDateString())
+                                </td>
+                                <td>
+                                    <a class="orgOpera" data-toggle="false">加入</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

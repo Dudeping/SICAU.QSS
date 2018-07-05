@@ -1,0 +1,44 @@
+﻿
+
+@section LoadCss{
+    <link type="text/css" href="/css/show.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/show.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="panel" id="panelDisDemo" item-type="radio" style="display: none">
+    <div class="panel-heading">
+        <h4 class="panel-title" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="collapseExample"><span class="item-num"></span>&nbsp;</h4>
+    </div>
+    <div class="panel-body">
+    </div>
+</div>
+<div class="collapse list-hidden-y" id="collapseExampleDemo" style="display: none">
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+    </div>
+</div>
+<!-- TODO: data-type 值，{string,['wtQues':显示问卷，'lgQues':问卷填写记录，'showQues':问卷填写结果，'wtVote':显示投票，'lgVote']:投票记录，'showVote':投票结果}: -->
+<div class="container" id="page-container" data-id="@ViewBag.Id" data-type="@ViewBag.ShowType">
+    <div class="page">
+        <div class="page-header">
+            <h2></h2>
+            <p class="instro"></p>
+            <small class="info">发布时间：<span class="time"></span>&nbsp;&nbsp;结束时间：<span class="time"></span>&nbsp;&nbsp;发起者：<span class="author"></span></small>
+        </div>
+
+        <div class="page-body">
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="page-footer" id="page-footer">
+        <form class="bottom-button">
+            <fieldset class="form-group">
+                <a class="btn btn-success" id="submit">提交</a>
+                <a class="btn btn-primary" id="cancel" onclick="history.go(-1);" href="#">取消</a>
+            </fieldset>
+        </form>
+    </div>
+</div>

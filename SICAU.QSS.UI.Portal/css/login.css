@@ -1,0 +1,86 @@
+/**
+ * @file login style module
+ * @author lyle(lj.jeyden@gmail.com)
+ * @version 1.0.1
+ */
+
+
+input[type=submit]::-moz-focus-inner {
+	padding: 0;
+	border: none;
+}
+
+h2 {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	padding: 1px;
+}
+
+.login_m {
+	margin: 0 auto;
+	margin-top: 98px;
+	width: 403px;
+	height: 375px;
+}
+
+.login_logo {
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.login_boder {
+	overflow: hidden;
+	height: 302px;
+}
+
+.login_padding {
+	padding: 28px 47px 20px;
+}
+
+.forget_model_h2,.login_boder h2 {
+	margin-bottom: 11px;
+	color: #4f5d80;
+	font-weight: 400;
+	font-size: 9pt;
+}
+
+.login_boder input.txt_input {
+	margin-bottom: 10px;
+	padding: 0 5px;
+	width: 295px;
+	height: 36px;
+	border: 1px solid #cad2db;
+	border-radius: 5px;
+	color: #717171;
+	font-size: 14px;
+	line-height: 36px;
+}
+
+.login_boder input.txt_input2 {
+	margin-bottom: 20px;
+}
+
+.login_boder input.txt_input:focus {
+	outline: 0;
+	border: 1px solid #6192c8;
+	border-color: rgba(173,173,173.75);
+	-webkit-box-shadow: 0 0 8px #adadad;
+	box-shadow: 0 0 8px hsla(0,0%,68%,.5);
+	-webkit-transition: border linear .2s,-webkit-box-shadow linear .2s;
+	transition: border linear .2s,-webkit-box-shadow linear .2s;
+	transition: border linear .2s,box-shadow linear .2s;
+	transition: border linear .2s,box-shadow linear .2s,-webkit-box-shadow linear .2s;
+}
+
+.error{
+	color: red;
+	padding-top:10px;
+}
+
+.note{
+	color: red;
+	text-align: center;
+}

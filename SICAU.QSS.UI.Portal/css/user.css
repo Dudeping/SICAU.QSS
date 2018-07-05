@@ -1,0 +1,76 @@
+/**
+ * @file usercenter module entry file 
+ * @author lyle(lj.jeyden@gmail.com)
+ * @version 1.0.1
+ */
+
+
+/* global style
+========================================================================== */
+a:hover{
+	cursor: pointer;
+}
+.badge-bg {
+	background-color: #6cc5d9
+}
+
+
+/* nav-pills style
+========================================================================== */
+.nav-pills-wrapper{
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top:20px;
+	padding-bottom: 20px;
+}
+
+.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover,.nav-pills>li>a:hover {
+	opacity: 0.8;
+	color: black;
+	background-color: #fff;
+	border-radius: 0;
+	/*color: #337ab7;*/
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+
+
+
+/* tab-panel style
+========================================================================== */
+.panel-container{
+	padding-top:20px;
+	padding-bottom: 20px;
+	min-height: 400px;
+}
+.panel-container .panel-wrapper{
+	padding:0 20px;
+}
+.messages-panel{
+	padding: 0;
+}
+#accordionNotice .panel-collapse{
+	margin:0 15px;
+}
+@media(max-width: 768px){
+	.panel-container .panel-wrapper{
+		padding:0;
+	}
+}
+
+
+
+/* modal style
+========================================================================== */
+.modal-wrapper{
+	padding:10px;
+}
+.checkbox {
+    padding-left: 20px;
+}
+.page-footer {
+    padding-top: 9px;
+    margin: 20px 0 20px;
+    border-top: 1px solid #eee;
+}

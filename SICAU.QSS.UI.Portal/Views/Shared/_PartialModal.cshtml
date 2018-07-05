@@ -1,0 +1,111 @@
+﻿    <!-- Modal begin-->
+<div class="panel" id="panelDisDemo" item-type="radio" style="display: none">
+    <div class="panel-heading">
+        <h4 class="panel-title" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="collapseExample"><span class="item-num"></span>&nbsp;</h4>
+    </div>
+    <div class="panel-body">
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div id="page-container">
+                <div class="page" data-id="1" data-type="00">
+                    <div class="page-header">
+                        <h2></h2>
+                        <small class="info">发布时间：<span class="time"></span>&nbsp;&nbsp;结束时间：<span class="time"></span>&nbsp;&nbsp;发起者：<span class="author"></span></small>
+                    </div>
+                    <div class="page-body">
+                    </div>
+                    <div class="page-footer" id="page-footer">
+                    </div>
+                </div>
+
+            </div>
+            <div class="page-footer" id="reviewOper">
+                <div id="reviewDis" style="display: none">
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="message-text" class="control-label">若不通过请填写理由:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <form class="bottom-button">
+                        <fieldset class="form-group">
+                            <a class="btn btn-success" id="reviewPass">通过</a>
+                            <a class="btn btn-primary" id="reviewDeny">不通过</a>
+                        </fieldset>
+                    </form>
+                </div>
+                <form class="bottom-button">
+                    <fieldset class="form-group">
+                        <a class="btn btn-primary" id="reviewCancel" data-dismiss="modal">返回</a>
+                    </fieldset>
+                </form>
+                <small class="footnote error" style="margin-left: 16px"></small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="managerCreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-wrapper">
+            <form action="/Users/AddSysAdmin" method="post" id="managerCreateTable">
+                <fieldset class="form-group">
+                    <label>添加账号：</label>
+                    <input type="text" name="account" class="form-control md-width">
+                    <small class="text-muted"></small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="submit" class="btn btn-success btn-width" value="提交">
+                    <a class="btn btn-primary btn-width cancelModal" data-dismiss="modal">取消</a>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="orgChangeModal" tabindex="-1" role="dialog" aria-labelledby="orgChangeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-wrapper">
+
+            <form id="orgChangeTable">
+                <fieldset class="form-group">
+                    <label>变更账号：</label>
+                    <input type="text" class="form-control md-width">
+                    <small class="text-muted"></small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="submit" class="btn btn-success btn-width" value="提交" id="orgChangeBtn">
+                    <a class="btn btn-primary btn-width cancelModal" data-dismiss="modal">取消</a>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sysNewChangeModal" tabindex="-1" role="dialog" aria-labelledby="orgChangeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-wrapper">
+            @using (Html.BeginForm("AddSysNew", "Users", FormMethod.Post, new { id = "managerCreateTable" }))
+            {
+                <fieldset class="form-group">
+                    <label>公告标题：</label>
+                    <input name="Title" type="text" class="form-control md-width">
+                    <small class="text-muted"></small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label>公告内容：</label>
+                    <textarea name="Content" class="form-control md-width" rows="5"></textarea>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="submit" class="btn btn-success btn-width" value="提交">
+                    <a class="btn btn-primary btn-width cancelModal" data-dismiss="modal">取消</a>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+<!-- Modal end-->

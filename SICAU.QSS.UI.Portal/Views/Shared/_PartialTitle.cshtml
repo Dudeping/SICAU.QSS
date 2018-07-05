@@ -1,0 +1,42 @@
+﻿
+<div class="container nav-pills-wrapper">
+    <ul class="nav nav-pills">
+        @if (!User.IsInRole(QssRoleType.Administrator.ToString()))
+        {
+            <li class="@(ViewBag.Title == "问卷管理" ? "active" : "")">
+                <a href="/Users/QuesList">问卷管理</a>
+            </li>
+            <li class="@(ViewBag.Title == "投票管理" ? "active" : "")">
+                <a href="/Users/VoteList">投票管理</a>
+            </li>
+            <li class="@(ViewBag.Title == "组织管理" ? "active" : "")">
+                <a href="/Users/OrganizeList">组织管理</a>
+            </li>
+            if (User.IsInRole(QssRoleType.SysAdmin.ToString()) || User.IsInRole(QssRoleType.Admin.ToString()))
+            {
+                <li class="@(ViewBag.Title == "审核管理" ? "active" : "")">
+                    <a href="/Users/AuditManage">审核管理</a>
+                </li>
+            }
+            <li class="@(ViewBag.Title == "消息中心" ? "active" : "")">
+                <a href="/Users/Letter">消息中心<span class="badge badge-bg">@Html.GetSysNewNum()</span></a>
+            </li>
+            <li class="@(ViewBag.Title == "个人信息" ? "active" : "")">
+                <a href="/Users/Info">个人信息</a>
+            </li>
+        }
+
+        @if (User.IsInRole(QssRoleType.Administrator.ToString()))
+        {
+            <li class="@(ViewBag.Title == "公告管理" ? "active" : "")">
+                <a href="/Users/ManageSysNews">公告管理</a>
+            </li>
+            <li class="@(ViewBag.Title == "系统管理" ? "active" : "")">
+                <a href="/Users/ManageSysAdmin">系统管理</a>
+            </li>
+            <li class="@(ViewBag.Title == "组织管理" ? "active" : "")">
+                <a href = "/Users/ManageOrganize"> 组织管理 </a >
+            </li >
+        }
+    </ul>
+</div>

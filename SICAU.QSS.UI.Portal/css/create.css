@@ -1,0 +1,101 @@
+.c-page-fluid{
+	margin-top:50px;
+}
+.page-sidebar {
+	position: fixed;
+	left: 0;
+	height: 100%;
+	width: 300px;
+	background-color: #eee;
+	z-index: 99;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+.page-sidebar li.nav-item a:hover {
+	background-color: #6cc5d9;
+	color: white;
+}
+.side-button {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: -50px;
+	top: 50px;
+	font-size: 2em;
+	color: #6cc5d9;
+	background-color: rgba(0,0,0,.5);
+	line-height: 56px;
+	text-align: center;
+	-webkit-transition: all .2s linear;
+	transition: all .2s linear;
+	border-radius: 0 4px 4px 0;
+	display: none;
+}
+.side-button:hover{
+	background: #6cc5d9;
+	color: white;
+	-webkit-transition: all linear .3s;
+	transition: all linear .3s;
+}
+@media (max-width: 768px){
+
+	.side-button {
+		display: block;
+	}
+}
+.c-nav-pills {
+	padding: 20px 10px 20px;
+}
+.c-nav-pills .glyphicon {
+	float: right;
+}
+.c-nav-pills .glyphicon {
+	margin: 0 5px;
+}
+.li.nav-item {
+	cursor: pointer;
+}
+.c-page-container {
+	margin-left: 300px;
+	padding-top:1px;
+}
+@media (max-width: 768px)
+{
+	.c-page-container {
+		margin: 0;
+	}
+}
+.item-num {
+    font-weight: 600;
+    padding-right: 0px;
+}
+.glyphicon {
+    margin: 0 5px;
+}
+.item .panel-body {
+    padding-top: 0;
+}
+.option {
+    margin: 5px 0;
+}
+.option-num {
+    margin-right: 5px;
+}
+
+.page-footer {
+    padding-top: 9px;
+    margin: 20px 0 20px;
+    border-top: 1px solid #eee;
+}
+.col-md-width{
+	width: 300px;
+}
+#QVSetPage .container{
+	padding:0;
+}
+@media (max-width: 768px)
+{
+	.col-md-width {
+		width: 100%;
+	}
+}

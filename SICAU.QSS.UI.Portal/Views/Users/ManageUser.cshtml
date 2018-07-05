@@ -1,0 +1,56 @@
+﻿@model IPagedList<ManageUserModel>
+@{
+    ViewBag.Title = "组织成员";
+    var organize = ViewBag.CurrentOrg as Organize;
+}
+
+@section LoadCss{
+    <link type="text/css" href="/css/org&info.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/org&info.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="container">
+    <div class="wrapper-fluid">
+        <div class="body-fluid">
+            <table class="table" id="orgMems" data-id="@organize.Id">
+                <caption class="info">
+                    <p class="text">组织名：<span>@organize.Name</span></p>
+                    <p class="text">组织类型：<span>@Html.GetOrgType(organize.Type)</span></p>
+                    <p class="text">创建时间：<span>@organize.CreateTime</span></p>
+                    <p class="text">过期时间：<span>@(organize.DeleteTime == DateTime.Parse("1996/09/06") ? "永久有效" : organize.DeleteTime.ToLongDateString())</span></p>
+                </caption>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-id="@item.Id">
+                            <td>@item.Name</td>
+                            <td>@item.Account</td>
+                            <td>
+                                @if (organize.Type == QssOrganizeType.Association || organize.Type == QssOrganizeType.Department || organize.Type == QssOrganizeType.Temp)
+                                {
+                                    if (organize.Admin.Id == item.Id)
+                                    {
+                                        <span title="不能移除组织管理员">移除</span>
+                                    }
+                                    else
+                                    {
+                                        <a title="点击移除该成员" href="#" class="memRemove">移除</a>
+                                    }
+                                }
+                                else
+                                {
+                                    <span title="该组织成员由系统自动管理">移除</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-wrapper-footer">
+            @Html.PagedListPager(Model, page => Url.Action("ManageUser", new { page }))
+        </div>
+    </div>
+</div>

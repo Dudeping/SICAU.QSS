@@ -1,0 +1,70 @@
+﻿@model IPagedList<Log>
+@{
+    ViewBag.Title = "系统管理";
+}
+
+@Html.Partial("_PartialModal")
+@Html.Partial("_PartialTitle")
+@section LoadCss{
+    <link type="text/css" href="/css/user.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/user.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="sysManagePanel">
+        <div class="filter-wrapper">
+            <div class="container">
+                <ul class="pager filter">
+                    <li> <a href="/Users/ManageSysAdmin">管理员管理</a> </li>
+                    <li> <a href="/Users/Logs">系统日志</a> </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel-container">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="box-shadow: none;border:none;margin-top: 20px;">
+                        <div class="panel-group" id="accordion">
+
+                            @foreach (var item in Model)
+                            {
+                                var message = item.Message.Split(new string[] { "[", "]" }, StringSplitOptions.RemoveEmptyEntries);
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse@(item.Id)" aria-expanded="false" class="collapsed">@message[0] </a>
+                                            <div class="pull-right">
+                                                <small class="text-muted"><i class="glyphicon glyphicon-clock-o"></i> @item.Date</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="collapse@(item.Id)" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+                                            @Html.Raw(message[1])
+                                            <br />
+                                            <br />
+                                            操作者：@message[2]
+                                            <br />
+                                            IP：@message[3]
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-wrapper-footer">
+            @Html.PagedListPager(Model, page => Url.Action("Logs", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+
+    </div>
+</div>

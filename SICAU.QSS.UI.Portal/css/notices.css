@@ -1,0 +1,15 @@
+/**
+ * @file notices style module
+ * @author lyle(lj.jeyden@gmail.com)
+ * @version 1.0.1
+ */
+
+.notice-panel{
+	margin-top: 4%;
+}
+.notice-list{
+	padding:5px 0;
+}
+.page-navigation-wrapper{
+	margin-top:2%;
+}

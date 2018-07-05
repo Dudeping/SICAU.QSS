@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FD3F9B3-1708-4B99-AB91-7DB318DBDA0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SICAU.QSS.BLL</RootNamespace>
+    <AssemblyName>SICAU.QSS.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'JWDOWN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\JWDOWN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Common\QssSendOrgLetterEmail.cs" />
+    <Compile Include="Common\QssSendQvLetterEmail.cs" />
+    <Compile Include="Common\QssUserHelper.cs" />
+    <Compile Include="LetterService.cs" />
+    <Compile Include="LogService.cs" />
+    <Compile Include="OrganizeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuesOptionService.cs" />
+    <Compile Include="QuesSubjectService.cs" />
+    <Compile Include="QuestionService.cs" />
+    <Compile Include="QuesVoteBaseService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="SysNewsService.cs" />
+    <Compile Include="UserService.cs" />
+    <Compile Include="VoteOptionService.cs" />
+    <Compile Include="VoteService.cs" />
+    <Compile Include="WebConfigService.cs" />
+    <Compile Include="WtLogService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SICAU.QSS.BLLModel\SICAU.QSS.BLLModel.csproj">
+      <Project>{50021C29-E392-4869-9976-DC44C4B21E44}</Project>
+      <Name>SICAU.QSS.BLLModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SICAU.QSS.Common\SICAU.QSS.Common.csproj">
+      <Project>{91B6CD71-09FA-4DE1-9FAC-03240C30BFF4}</Project>
+      <Name>SICAU.QSS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SICAU.QSS.DALFactory\SICAU.QSS.DALFactory.csproj">
+      <Project>{B4388FEE-F202-4BD6-9935-6E233EE850AE}</Project>
+      <Name>SICAU.QSS.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SICAU.QSS.IBLL\SICAU.QSS.IBLL.csproj">
+      <Project>{361780FC-CCFA-4606-81ED-2C511A000E63}</Project>
+      <Name>SICAU.QSS.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SICAU.QSS.IDAL\SICAU.QSS.IDAL.csproj">
+      <Project>{09A4CCB5-897A-46CB-952A-EF1ED14BACC2}</Project>
+      <Name>SICAU.QSS.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SICAU.QSS.Model\SICAU.QSS.Model.csproj">
+      <Project>{05837DCC-C015-4E83-A49A-63B1791328E5}</Project>
+      <Name>SICAU.QSS.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,33 @@
+﻿@model IPagedList<SysNewsListModel>
+@{
+    ViewBag.Title = "公告列表";
+}
+
+@section LoadCss{
+    <link type="text/css" href="/css/notices.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/notices.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="container notice-panel">
+    @foreach (var item in Model)
+    {
+        <div class="notice-list">
+            <div class="box-header">
+                <h4><a target="_blank" href="/Home/SysNewDetail/@item.Id">  @item.Title</a></h4>
+            </div>
+
+            <p>@item.Content.GetFirst(200) <a target="_blank" href="/Home/SysNewDetail/@item.Id"> 查看详情>></a></p>
+            <p>
+                <span class="box-footer-content time">@item.CreateTime</span>
+            </p>
+        </div>
+    }
+    <div class="page-navigation-wrapper">
+        <div class="panel-wrapper-footer">
+            @Html.PagedListPager(Model, page => Url.Action("SysNewList", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+    </div>
+
+</div>

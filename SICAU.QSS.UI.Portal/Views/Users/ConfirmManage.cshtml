@@ -1,0 +1,62 @@
+﻿@model IPagedList<ConfirmManageModel>
+@{
+    ViewBag.Title = "审核管理";
+}
+
+@Html.Partial("_PartialModal")
+@Html.Partial("_PartialTitle")
+@section LoadCss{
+    <link type="text/css" href="/css/user.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/user.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="reviewManagePanel">
+
+        <div class="filter-wrapper">
+            <div class="container">
+                <ul class="pager filter">
+                    <li>
+                        <a href="/Users/AuditManage?type=audit">未审核</a>
+                    </li>
+                    <li>
+                        <a class="fa-fade" href="/Users/AuditManage?type=confirm">未确认</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-container">
+            <div class="container">
+                <table class="table table-hover">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th>提交者</th>
+                            <th>提交时间</th>
+                            <th>确认状态</th>
+                            <th>提交类型</th>
+                            <th>提交内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr data-type="@(item.SubmitType == QssConfirmSubmitType.ques?"ques":"vote")" data-id="@item.Id">
+                                <td class="title">@item.Author</td>
+                                <td class="time">@item.SubmitTime.ToLongDateString()</td>
+                                <td class="okStatus" data-type="toOk">未确认</td>
+                                <td>@(item.SubmitType == QssConfirmSubmitType.ques ? "问卷" : "投票")</td>
+                                <td><a data-toggle="modal" data-target="#myModal" class="okOpera">查看</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-wrapper-footer">
+            @Html.PagedListPager(Model, page => Url.Action("AuditManage", new { page, type = "confirm" }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+    </div>
+</div>

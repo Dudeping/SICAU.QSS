@@ -1,0 +1,102 @@
+﻿@model IPagedList<QuesAndVoteModel>
+@{
+    ViewBag.Title = "问卷管理";
+}
+
+@Html.Partial("_PartialModal")
+@Html.Partial("_PartialTitle")
+@section LoadCss{
+    <link type="text/css" href="/css/user.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/user.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="quesManagePanel">
+        <div class="filter-wrapper">
+            <div class="container">
+                <ul class="pager filter">
+                    <li>
+                        <a class="@(ViewBag.QType == QssGetQuesVoteType.all.ToString()?"fa-fade":"" )" href="?type=@QssGetQuesVoteType.all.ToString()">全部</a>
+                    </li>
+                    <li>
+                        <a class="@(ViewBag.QType == QssGetQuesVoteType.create.ToString()?"fa-fade":"" )" href="?type=@QssGetQuesVoteType.create.ToString()">我创建</a>
+                    </li>
+                    <li>
+                        <a class="@(ViewBag.QType == QssGetQuesVoteType.write.ToString()?"fa-fade":"" )" href="?type=@QssGetQuesVoteType.write.ToString()">我填写</a>
+                    </li>
+                    <li>
+                        <a class="@(ViewBag.QType == QssGetQuesVoteType.audit.ToString()?"fa-fade":"" )" href="?type=@QssGetQuesVoteType.audit.ToString()">我审核</a>
+                    </li>
+                    <li>
+                        <a class="" target="_blank" href="/Question/Create">新建问卷</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-container">
+            <div class="panel-wrapper">
+
+                @foreach (var item in Model)
+            {
+                    <div class="col-md-2 col-sm-2 panel-box">
+                        <div class="panel box-shadow box-border">
+                            <div class="panel-heading">@item.Title</div>
+                            <div class="panel-body">
+                                <p><span class="time">@item.BeginTime.ToLongDateString()</span></p>
+                                <p><span class="author">@item.Publisher</span></p>
+                                <p>已有<span class="join-num">@item.JoinNum</span>人参与</p>
+                            </div>
+                            <div class="panel-footer box-border">
+                                <ul class="list-control">
+                                    <li>
+                                        @if (item.State == QssQuesAndVoteState.Write && item.Creator == User.Identity.Name)
+                                        {
+                                            <div class="dropdown">
+                                                <a title="点击结束投票" data-toggle="dropdown" class="collecting">发布中</a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    <li>
+                                                        <a href="/Question/EndQues/@item.Id">结束</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <a title="投票状态" class="@Html.GetQuesVoteStatCss(item.State)">@Html.GetQuesVoteStat(item.State)</a>
+                                        }
+                                    </li>
+                                    @if (item.Writeable && (item.State == QssQuesAndVoteState.Write || item.State == QssQuesAndVoteState.End))
+                                    {
+                                        if (item.IsWrite)
+                                        {
+                                            <li><a target="_blank" title="点击查看填写记录" href="/Question/WtLogDetail/@item.Id">已填写</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a target="_blank" title="点击填写问卷" href="/Question/WtQuestion/@item.Id">未填写</a></li>
+                                        }
+                                    }
+                                    @if (item.Readable && item.State == QssQuesAndVoteState.End)
+                                    {
+                                        <li><a target="_blank" title="点击查看问卷结果" href="/Question/ResultDetail/@item.Id">报表</a></li>
+                                    }
+                                    @if (item.Creator == User.Identity.Name)
+                                    {
+                                        <li><a title="点击删除问卷" href="/Question/Delete/@item.Id">删除</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <div class="panel-wrapper-footer">
+            @Html.PagedListPager(Model, page => Url.Action("QuesList", new { page, type = ViewBag.QType }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+    </div>
+</div>

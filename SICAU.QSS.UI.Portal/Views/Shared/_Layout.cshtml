@@ -1,0 +1,83 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" charset="utf-8">
+    <title>@ViewBag.Title - 四川农业大学问卷投票系统</title>
+
+    <link href="/css/common.css?634ca6797f4a91298613" rel="stylesheet">
+    @RenderSection("LoadCss", false)
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-box navbar-wrapper">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#index-navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                @if (!User.IsInRole(QssRoleType.Administrator.ToString()))
+                {
+                    <a class="navbar-brand" href="/">四川农业大学问卷投票系统</a>
+                }
+                else
+                {
+                    <a class="navbar-brand" href="#">四川农业大学问卷投票系统</a>
+                }
+            </div>
+            <div class="collapse navbar-collapse" id="index-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    @if (!User.IsInRole(QssRoleType.Administrator.ToString()))
+                    {
+                        <li>
+
+                            <a href="/">首页</a>
+                        </li>
+                        <li>
+
+                            <a href="/Home/SysNewList">公告中心</a>
+                        </li>
+                    }
+
+
+                    <li class="user-wrapper">
+                        <div class="welcome">
+                            @if (Request.IsAuthenticated)
+                            {
+
+                                <text>欢迎您！</text>
+                                if (User.IsInRole(QssRoleType.Administrator.ToString()))
+                                {
+                                    <a class="username" id="user" href="/Account/ChangePassword" title="点击修改密码" data-id="">超级管理员</a>
+                                }
+                                else
+                                {
+                                    <a class="username" id="user" href="/Users/Info" data-id="@Html.GetUserId()">@Html.GetUserName()</a>
+                                }
+                                <text>&nbsp; &nbsp; &nbsp;</text>
+                                @Html.ActionLink("退出登录", "LogOff", "Account")
+                            }
+                            else
+                            {
+                                <span><span class="time" id="period">下午</span>好，游客！请先</span>
+                                <a href="/Account/Login">登录</a>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    @*@Html.Partial("_PartialFoot")*@
+
+    <script type="text/javascript" src="/js/common.js?634ca6797f4a91298613"></script>
+    @RenderSection("LoadJs", false)
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "创建组织";
+}
+
+@section LoadCss{
+    <link type="text/css" href="/css/org&create.css?5c0a13bdc04791999455" rel="stylesheet">
+}
+@section LoadJs{
+    <script type="text/javascript" src="/js/org&create.js?5c0a13bdc04791999455"></script>
+}
+
+<div class="container">
+    <div class="page">
+        <div class="page-header">
+            <h2>新建组织</h2>
+        </div>
+        <div class="page-body">
+            <!-- TODO: action 值，{http}：创建组织提交的url地址 -->
+            <form action="/Organize/Create" method="post" id="orgCreateTable">
+                <fieldset class="form-group">
+                    <label for="orgName">组织名：</label>
+                    <input name="OrgName" type="text" class="form-control md-width" id="orgName">
+                    <small class="text-muted"></small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="orgType">组织类型：</label>
+                    <select name="OrgType" class="form-control" id="orgType" style="width: 100px">
+                        <option value="School" data-type="School">学校</option>
+                        <option value="Campus" data-type="Campus">校区</option>
+                        <option value="College" data-type="College">学院</option>
+                        <option value="Major" data-type="Major">专业</option>
+                        <option value="Department" data-type="Department">部门</option>
+                        <option value="Association" data-type="Association">协会</option>
+                        <option value="Class" data-type="Class">班级</option>
+                        <option value="Temp" data-type="Temp">临时</option>
+                    </select>
+                    <small class="text-muted">*组织类型为专业，请保持组织名与教务处专业名称一致&nbsp;&nbsp;*班级组织只能由学习委员创建</small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="loginVerification">教务网密码：</label>
+                    <input name="Password" type="password" class="form-control md-width" id="loginVerification">
+                </fieldset>
+                <!-- EVENT:display control -->
+                <fieldset class="form-group" style="display: none" id="classType">
+                    <label for="pwdVerification">请输入学习委员密码：</label>
+                    <input name="ComPassword" type="password" class="form-control md-width" id="pwdVerification">
+                    <small class="text-muted error">班级组织创建需要验证学习委员密码</small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="submit" class="btn btn-success btn-width" value="提交">
+                    <!-- EVENT: cancel click -->
+                    <a class="btn btn-primary btn-width" id="cancel">取消</a>
+                </fieldset>
+            </form>
+        </div>
+        <div class="page-footer">
+            <form>
+                <fieldset class="form-group bottom-button">
+                    <label class="error"></label>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>

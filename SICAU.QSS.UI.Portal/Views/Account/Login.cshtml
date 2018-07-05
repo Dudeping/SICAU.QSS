@@ -1,0 +1,77 @@
+﻿@model LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" charset="utf-8">
+    <title>登录 - 四川农业大学问卷投票系统</title>
+    <link href="/css/common.css?634ca6797f4a91298613" rel="stylesheet">
+    <link href="/css/login.css?634ca6797f4a91298613" rel="stylesheet">
+</head>
+<body class="login" id="logo_bg">
+    <nav class="navbar navbar-default navbar-box navbar-wrapper">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#index-navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">四川农业大学问卷投票系统</a>
+            </div>
+            <div class="collapse navbar-collapse" id="index-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+                    <li>
+                        <a href="/Home/SysNewList">公告中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login_m" }))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="returnUrl", value="@ViewBag.ReturnUrl" />
+        <div class="login_boder" id="logo_border">
+            <div class="login_padding" id="login_model">
+                <h2>教务网账号</h2>
+                <label>
+                    @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "txt_input txt_input2", id = "username" } })
+                </label>
+                <h2>教务网密码</h2>
+                <label>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "txt_input", id = "userpwd" } })
+                </label>
+                <div class="btn-group"><input type="submit" class="btn btn-success" value="登录"></div>
+                <p class="error">
+                    @Html.ValidationSummary(true, "", new { @class= "error" })
+                    @Html.ValidationMessageFor(model => model.Account, "")
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Password, "")
+                </p>
+            </div>
+        </div>
+    }
+    <br>
+    <br>
+    <div id="footer">
+        <p align="center">
+            <span>Copyright &copy; <span id="copyrightTime"></span>.SICAU All rights reserved.</span>
+        </p>
+    </div>
+
+    <script type="text/javascript" src="/js/common.js?634ca6797f4a91298613"></script>
+    <script type="text/javascript" src="/js/login.js?634ca6797f4a91298613"></script>
+    @Scripts.Render("~/bundles/jquery");
+    @Scripts.Render("~/bundles/jqueryval");
+</body>
+</html>
